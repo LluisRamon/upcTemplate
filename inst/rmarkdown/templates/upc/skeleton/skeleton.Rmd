@@ -1,0 +1,94 @@
+---
+title: "Document d'exemple amb plantilla upc"
+author: "Lluís Ramon"
+date: \today
+portada: true
+lang: catalan
+output: 
+  upcTemplate::upc:
+    fig_caption: yes
+    toc: true
+    toc_depth: 2
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyfoot[CO,CE]{pàg. \thepage}
+- \rhead{\includegraphics[width = 3cm]{upc.png}}
+---
+
+```{r knitr options, echo = FALSE, message = FALSE, warning = FALSE}
+library(knitr)
+opts_chunk$set(comment = '', message = FALSE, warning = FALSE, fig.height = 4, fig.width = 8, echo = FALSE)
+```
+
+
+# Nivell 1
+
+## Nivell 2
+
+### Nivells de l'index
+
+Si volem que l'índex tingui més o menys nivells, cal establir al yalm el paràmetre toc_depth.
+Per defecte és 2, però amb toc_depth: 1 tindrà menys profunditat i amb toc_depth: 3 en tindrà més.
+
+# Incloure portada
+
+Per afegir portada cal incloure portada: true al yalm. No ha d'estar indentat.
+
+# Definir idioma del document
+
+Amb la plantilla upc es poden definir diferents idiomes del document. Per defecte, hi ha _catalan_ però adaptant el yaml de la sgüent forma:
+
+* lang: _spanish_
+* lang: _english_
+
+Es cambiaria automàticament. Això és convenient per l'índex, la llista de figures, taules, etc.
+
+
+# Incloure gràfics al document
+
+
+```{r, fig.align='center', fig.height = 3, fig.width = 3}
+plot(rnorm(100))
+```
+
+## Si es vol que estigui referenciada
+
+```{r, fig.cap = "Text del caption"}
+plot(rnorm(100))
+```
+
+
+Si es vol que la imatge tingui caption, ha de tenir fig.cap = "Text del caption".
+
+El yalm s'ha d'escriure de la següent forma:
+
+output: 
+  upcTemplate::upc:
+    fig_caption: yes
+    
+
+\listoffigures
+
+# Comandes de LaTeX interessants
+
+Per incloure formules es poden escriure dins de $\beta = 2^2$.
+
+Per afegir salts de pàgina:
+
+```
+\pagebreak
+\newpage
+```
+
+Per afegir linea en blanc es pot usar ```\newline``` però cal que estigui entre dolars.
+
+Gestió de la dimensió del text.
+
+```
+\tiny
+\small
+\large
+\Large
+\LARGE
+```

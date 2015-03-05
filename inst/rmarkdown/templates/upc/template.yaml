@@ -1,0 +1,4 @@
+name: UPC
+description: >
+ Template for creating upc projects
+create_dir: true

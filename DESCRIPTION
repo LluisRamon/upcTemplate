@@ -1,0 +1,10 @@
+Package: upcTemplate
+Type: Package
+Title: Plantilles per projectes de la upc
+Version: 0.1
+Imports: rmarkdown (>= 0.4.2)
+Date: 2015-03-03
+Author: Lluis Ramon
+Maintainer: Lluis Ramon <lluis.llistes@gmail.com>
+Description: Plantilles generada amb rmarkdown per projectes de la UPC.
+License: GPL-2
